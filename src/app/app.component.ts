@@ -51,7 +51,9 @@ export class AppComponent{
     const file = event.target.files[0];
     console.log(file);
     this.convertToBase64(file)  
-}
+} 
+
+ff
 
   convertToBase64(file:File){
     const observable = new Observable((subscriber: Subscriber<any>) =>{
