@@ -1,8 +1,9 @@
 import { modelColumn } from "./modelColumn"
+import { modelFlagNotes } from "./modelFlagNotes";
 
 export class modelNotes {
     nameNotes!: string;
-    idNotes!: string;
+    id!: string;
     colum!: modelColumn[];
-    editN!: boolean;
+    flagNote!: modelFlagNotes;
 };
