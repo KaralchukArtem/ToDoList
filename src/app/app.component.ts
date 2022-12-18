@@ -5,7 +5,6 @@ import { Observable, Subscriber } from 'rxjs';
 import { modelFlagNotes } from './modelServer/modelFlagNotes';
 
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,7 +21,7 @@ export class AppComponent{
     flagNoteLableEdit: false,
     flagColum: false
   }
-
+      
   constructor(private notesService: NotesService){};
   
   notes: modelNotes[] = this.notesService.Notes;
@@ -85,11 +84,18 @@ export class AppComponent{
     }
   }
 
+  ext(name:string):String{
+    return name.slice(0,name.indexOf("/"));
+  }
   onChange(event: any,idN:number,idCol: number){
     const file = event.target.files[0];
-    console.log(file);
-    this.convertToBase64(file,idN,idCol) 
-    console.log(this.notes);
+    let extFile = this.ext(file.type);
+    if(extFile != "image"){
+      alert("Выберите правильный тип файла")
+    }else{
+      this.convertToBase64(file,idN,idCol) 
+      console.log(this.notes);
+  }
 } 
 
   convertToBase64(file:File,idN:number,idCol: number){
