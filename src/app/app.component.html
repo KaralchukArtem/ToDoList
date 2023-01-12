@@ -19,7 +19,7 @@
             
             <div class="note-content-card" *ngFor="let colum of note.card;let y = index;">
                 <div class="note-card-header-content" *ngIf="!colum.editC">
-                    <input (click)="editColum(colum)" type="submit" value = {{colum.name}} class="form-control" />
+                    <input (click)="openDialog(colum)" (click)="editColum(colum)" type="submit" value = {{colum.name}} class="form-control" />
                     <button id="bt-act-del" (click)="deleteColum(i,y)"></button>
                 </div>
                 <div class="note-card-header-content" *ngIf="colum.editC">
@@ -27,10 +27,6 @@
                     <button id="bt-act-sev" (click)="updateColum(colum)"></button>
                 </div>
     
-                <div class="ssss" *ngIf="colum.editC">
-                    asdasd
-                </div>
-
                 <div>
                     <input type="file" (change)="onChange($event,i,y)">
                     <div *ngFor="let img of colum.img; let z = index;">

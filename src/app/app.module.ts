@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 
+import {MatDialogModule} from '@angular/material/dialog'
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CardComponent } from './card/card.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

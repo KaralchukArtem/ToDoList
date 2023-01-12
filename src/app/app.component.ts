@@ -4,6 +4,10 @@ import { NotesService } from '../app/service/notes.service';
 import { Observable, Subscriber } from 'rxjs';
 import { modelFlagNotes } from './modelServer/modelFlagNotes';
 
+import { MatDialog } from '@angular/material/dialog'
+import { CardComponent } from './card/card.component';
+import { modelCard } from './modelServer/modelCard';
+
 
 @Component({
   selector: 'app-root',
@@ -22,9 +26,15 @@ export class AppComponent{
     flagColum: false
   }
       
-  constructor(private notesService: NotesService){};
+  constructor(private notesService: NotesService, private dialogRef:MatDialog){};
   
+ 
+
   notes: modelNotes[] = this.notesService.Notes;
+
+  openDialog(card: modelCard){
+     let dialog = this.dialogRef.open(CardComponent, {data :card });
+  }
 
   addNote(item:string){
     if(item.trim().length === 0){

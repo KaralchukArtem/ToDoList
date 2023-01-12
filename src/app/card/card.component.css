@@ -2,3 +2,10 @@ p{
     color: red;
     z-index: 3;
 }
+.card{
+    width: 300px;
+    height: auto;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+}
