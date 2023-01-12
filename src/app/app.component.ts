@@ -127,4 +127,15 @@ export class AppComponent{
     }
   }
 
+
+  // Search name, for fun _)
+  pipeNameClass(){
+    let name = document.getElementsByClassName("note-add");
+    console.log(name[0].children[0].className);
+    let chName = name[0].children[0];
+    chName.className = "asd";
+
+    console.log(chName);
+  }
+
 }

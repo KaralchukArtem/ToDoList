@@ -1,9 +1,9 @@
-import { modelColumn } from "./modelColumn"
+import { modelCard } from "./modelCard"
 import { modelFlagNotes } from "./modelFlagNotes";
 
 export class modelNotes {
     nameNotes!: string;
     id!: string;
-    colum!: modelColumn[];
+    card!: modelCard[];
     flagNote!: modelFlagNotes;
 };

@@ -1,73 +1,80 @@
-<h1> {{title}} </h1>
-<div>
-    <ul *ngFor="let note of notes; let i = index;"> 
+<header>
+    <p>{{title}}</p>
+</header>
 
-        <li>
+<main>
+    <div class="board">
+        <div class="note-content" *ngFor="let note of notes; let i = index;"> 
 
-            <div *ngIf="!note.flagNote.flagEdit">
-                <input (click)="editNote(note)" type="submit" value={{note.nameNotes}}>
-                <button (click)="deleteNote(i)">Delete note</button>
-            </div> 
-            <div *ngIf="note.flagNote.flagEdit">
-                <input type="text" [(ngModel)] = "note.nameNotes" class="form-control" />
-                <button (click)="updateNote(note)">Update N</button>
+            <div class="note-header-wrapper">
+                <div class="note-header-content" *ngIf="!note.flagNote.flagEdit">
+                    <input (click)="editNote(note)" type="submit" value={{note.nameNotes}}>
+                    <button id="bt-act-del" (click)="deleteNote(i)" ></button>
+                </div> 
+                <div class="note-header-content" *ngIf="note.flagNote.flagEdit">
+                    <input type="text" [(ngModel)] = "note.nameNotes" class="form-control" />
+                    <button id="bt-act-sev" (click)="updateNote(note)"></button>
+                </div>
             </div>
             
-            <ul >
-                <li *ngFor="let colum of note.colum;let y = index;"> 
-                    
-                    <div>
-                        <div *ngIf="colum.editC">
-                            <input type="text" [(ngModel)] = "colum.name" class="form-control" />
-                        </div>
-                    </div>
-                    
-                    <div *ngIf="!colum.editC">{{colum.name}}</div>
-        
-                    <div>
-                        <input type="file" (change)="onChange($event,i,y)">
-                        <div *ngFor="let img of colum.img; let z = index;">
-                            <img [src]="colum.img[z].Base64" width="200px" height="200px" alt="">
-                        </div>
-                    </div>
-
-                    <button (click)="deleteColum(i,y)"> Delete</button>
-        
-                    <div *ngIf="colum.editC">
-                        <button (click)="updateColum(colum)"> Update</button>
-                    </div>
-                    <div *ngIf="!colum.editC">
-                        <button (click)="editColum(colum)"> Edit</button>
-                    </div>
-        
-                </li>
-                <br>
-            </ul>
-        </li>
-
-        <div *ngIf="!note.flagNote.flagAdd">
-            <button (click)="note.flagNote.flagAdd = true">Add New Colum</button> 
-        </div>
-        <div *ngIf="note.flagNote.flagAdd">
-            <input type = "text" placeholder="Enter colum" #nColum />
-            <button (click)="addColumn(i,nColum.value)">Add</button> 
-            <button (click)="note.flagNote.flagAdd = false">Can't</button>
-        </div>
-       
+            <div class="note-content-card" *ngFor="let colum of note.card;let y = index;">
+                <div class="note-card-header-content" *ngIf="!colum.editC">
+                    <input (click)="editColum(colum)" type="submit" value = {{colum.name}} class="form-control" />
+                    <button id="bt-act-del" (click)="deleteColum(i,y)"></button>
+                </div>
+                <div class="note-card-header-content" *ngIf="colum.editC">
+                    <input type="text" [(ngModel)] = "colum.name" class="form-control" />
+                    <button id="bt-act-sev" (click)="updateColum(colum)"></button>
+                </div>
     
-    </ul>
-</div>
+                <div class="ssss" *ngIf="colum.editC">
+                    asdasd
+                </div>
 
-<div class="add-note">
-    <div *ngIf="!flag.flagNote">
-        <button (click)="flag.flagNote = true">Add New Note</button>
+                <div>
+                    <input type="file" (change)="onChange($event,i,y)">
+                    <div *ngFor="let img of colum.img; let z = index;">
+                        <img [src]="colum.img[z].Base64" width="70%"  alt="">
+                    </div>
+                </div>
+
+            </div>
+             
+            <div class="note-add-card">
+                    <div *ngIf="!note.flagNote.flagAdd">
+                        <button (click)="note.flagNote.flagAdd = true">
+                            <span class="icon-add"></span>
+                            Add another card
+                        </button> 
+                    </div>
+                    <div class="card-add-content" *ngIf="note.flagNote.flagAdd">
+                        <input type = "text" placeholder="Enter colum" #nColum />
+                        <button id="note-add-bt-act-sev" (click)="addColumn(i,nColum.value)"></button> 
+                        <button id="note-add-bt-act-del" (click)="note.flagNote.flagAdd = false"></button>
+                    </div> 
+            </div>
+                              
+        </div>
+        <div class="note-add">
+            <div class="note-add-wrapper" *ngIf="!flag.flagNote">
+                <button (click)="pipeNameClass()" (click)="flag.flagNote = true">
+                        <span class=" icon-add"></span> 
+                        Add another note
+                </button>
+            </div>
+            <div class="note-add-content" *ngIf="flag.flagNote">
+                <input type = "text" placeholder="Enter Note" #note />
+                <button id="note-add-bt-act-sev" (click)="addNote(note.value)"></button>
+                <button id="note-add-bt-act-del" (click)="flag.flagNote = false"></button>
+            </div>
+        </div>
     </div>
-    <div *ngIf="flag.flagNote">
-        <input type = "text" placeholder="Enter Note" #note />
-        <button class="bt-btadd" (click)="addNote(note.value)">Add New Note</button>
-        <button class="bt-btdont" (click)="flag.flagNote = false">Can't</button>
-    </div>
-</div>
+
+</main>
+
+<footer>
+
+</footer>
 
 
 

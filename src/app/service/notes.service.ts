@@ -19,7 +19,7 @@ export class NotesService {
     this.Notes.push({
       id: this.Notes.length.toString(),
       nameNotes: item,
-      colum: [],
+      card: [],
       flagNote: new modelFlagNotes
     });
 
@@ -40,7 +40,7 @@ export class NotesService {
 
     console.warn("idC + "+ idC);
 
-    this.Notes[idN].colum.push({
+    this.Notes[idN].card.push({
       id:idC.toString(),
       name:item,
       editC:false,
@@ -61,7 +61,7 @@ export class NotesService {
   deleteColum(id:number,idCol:number){
     console.warn("before C" + id)
 
-    this.Notes[id].colum.splice(idCol, 1);
+    this.Notes[id].card.splice(idCol, 1);
 
     console.warn("delete C" + this.Notes)
     
@@ -69,7 +69,7 @@ export class NotesService {
   
   addFile(file: string,idN:number, idCol:number){
     let idImg:number = Math.round(Math.random()*(idN +100 ));
-    this.Notes[idN].colum[idCol].img.push({id:idImg.toString(),Base64: file});
+    this.Notes[idN].card[idCol].img.push({id:idImg.toString(),Base64: file});
 
     console.warn("add File" + this.Notes)
 

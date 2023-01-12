@@ -1,0 +1,191 @@
+body{
+    color: white;
+}
+header{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: bisque;
+    margin-bottom: 40px;
+    text-align: center;
+    justify-items: center;
+}
+header > p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.625em
+}
+/* ----------------------------- */
+.board{
+ display: inline-flex;
+ padding: 20px 20px 0 20px;
+}
+.note-content{
+    box-sizing: border-box;
+    display: block;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 20px;
+    width: 272px;
+    background-color: darkgray;
+    border-radius: 5px;
+    padding: 5px;
+}
+.note-header-content{
+    position: relative;
+    height: 2em;
+    border: none;
+    display: flex;
+    margin-bottom: 10px;
+}
+.note-header-content input{
+    width: 80%;
+    border: none;
+    text-align: left;
+    background-color: darkgray;
+    border-radius: 5px;
+}
+.note-header-content input[type="text"] {
+    background-color: white;
+    border: 1em black;
+}
+#bt-act-del, #bt-act-sev{
+    position: absolute;
+    right: 1%;
+    top: 16%;
+    background: none;
+    border: none;
+}
+#bt-act-del::before{
+    content: url(../app/svg/del.png);
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+#bt-act-sev::before{
+    content: url(../app/svg/sev.png);
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+
+.note-add-wrapper{
+    position: relative;
+    top: 50%;
+    margin-top: -0.625em;
+}
+
+.note-add-wrapper button{
+    display: inline-block;
+    background: none;
+    border: none;
+}
+.icon-add::before{
+    content: url(../app/svg/sev.png);
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.note-add-content{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 50%;
+    margin-top: -0.625em;
+}
+.note-add-content input{
+    width: 80%;
+    border: none;
+    background-color: darkgray;
+    border-radius: 5px;
+}
+.note-add-content input:focus{
+    background-color: white;
+    outline: none;
+}
+
+#note-add-bt-act-sev, #note-add-bt-act-del{
+    background: none;
+    border: none;
+}
+#note-add-bt-act-sev::before{
+    content: url(../app/svg/sev.png);
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#note-add-bt-act-del::before{
+    content: url(../app/svg/del.png);
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.note-add-card button{
+    background: none;
+    border: none;
+}
+.card-add-content input{
+    width: auto;
+    border: none;
+    text-align: left;
+    background-color: darkgray;
+    border-radius: 5px;
+}
+.card-add-content input[type="text"] {
+    background-color: white;
+    border: none;
+}
+
+
+.note-content-card{
+    background-color: white;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+.ssss{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+    z-index: 2;
+}
+.note-card-header-content{
+    position: relative;
+    height: 2em;
+    border: none;
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom-style: ridge;
+    height: 40px;
+    
+}
+.note-card-header-content input{
+    height: 75%;
+    width: 80%;
+    border: none;
+    text-align: left;
+    background-color: darkgray;
+    border-radius: 5px;
+}
+.note-card-header-content input[type="text"] {
+    background-color: white;
+    border: 1em black;
+}
+
+
+
+
